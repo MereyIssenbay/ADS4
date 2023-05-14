@@ -10,6 +10,12 @@ private class HashNode<K, V>{
     public K getKey() {
         return key;
     }
+    public V getValue() {
+        return value;
+    }
+    public void setValue(V value) {
+        this.value = value;
+    }
     @Override
     public String toString(){
         return "{" + key + " " + value + "}";
