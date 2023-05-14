@@ -1,36 +1,27 @@
 import java.util.Random;
-class MyTestingClass {
-    private int id;
-    private String name;
-    public MyTestingClass(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    public int getId() {
-        return id;
-    }
-    public String getName() {
-        return name;
+
+class MyTestingClass{
+    private int val;
+    public MyTestingClass(int v) {
+        this.val = v;
     }
     @Override
     public int hashCode() {
-        int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        return result;
+        return Integer.hashCode(val);
     }
 }
+
 public class Main {
     public static void main(String[] args) {
-        MyHashTable<MyTestingClass, Integer> hashTable = new MyHashTable<>();
+        MyHashTable hashTable = new MyHashTable<MyTestingClass, String>();
         Random rand = new Random();
         for (int i = 0; i < 10000; i++) {
-            MyTestingClass key = new MyTestingClass(rand.nextInt(100), "Name" + i);
-            hashTable.put(key, i);
+            int val = rand.nextInt(0, 9999999);
+            hashTable.put(new MyTestingClass(val), "Student " + val);
         }
         for (int i = 0; i < hashTable.M; i++) {
             System.out.println("Bucket " + i + ": " + hashTable.chain[i].size());
         }
+
     }
 }

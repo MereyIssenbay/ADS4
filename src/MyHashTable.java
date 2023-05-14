@@ -80,4 +80,7 @@ public class MyHashTable<K, V> {
         return null;
     }
 
+    public int getSize() {
+        return size;
+    }
 }
