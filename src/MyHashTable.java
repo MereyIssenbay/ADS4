@@ -13,8 +13,13 @@ public class MyHashTable<K, V> {
         chain = new LinkedList[M];
         size = 0;
     }
-    private int hash(K key){}
-    public void put(K key, V value){}
+    private int hash(K key) {
+        return key.hashCode() % M;
+    }
+
+    public void put(K key, V value){
+
+    }
     public V get(K key){}
     public V remove(K key){}
     public boolean contains(V value){}

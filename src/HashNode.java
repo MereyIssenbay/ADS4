@@ -7,6 +7,9 @@ private class HashNode<K, V>{
         this.key = key;
         this.value = value;
     }
+    public K getKey() {
+        return key;
+    }
     @Override
     public String toString(){
         return "{" + key + " " + value + "}";
