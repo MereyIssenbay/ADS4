@@ -2,7 +2,7 @@ import java.util.LinkedList;
 public class MyHashTable<K, V> {
     public LinkedList<HashNode<K, V>>[] chain;; // or Object[]
     public int M = 11; //default number of chains
-    private int size;
+    public int size;
 
     public MyHashTable(){
         chain = new LinkedList[M];
