@@ -4,7 +4,10 @@ public class MyHashTable<K, V> {
     private int M = 11; //default number of chains
     private int size;
 
-    public MyHashTable(){}
+    public MyHashTable(){
+        chain = new LinkedList[M];
+        size = 0;
+    }
     public MyHashTable(int M){}
     private int hash(K key){}
     public void put(K key, V value){}
