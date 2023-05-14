@@ -18,7 +18,18 @@ public class MyHashTable<K, V> {
     }
 
     public void put(K key, V value){
-
+        int index = hash(key);
+        if (chain[index] == null){
+            chain[index] = new LinkedList<HashNode<K, V>>();
+        }
+        for (HashNode<K, V> node: chain[index]){
+            if(node.getKey().equals(key)){
+                node.setValue(value);
+                return;
+            }
+        }
+        chain[index].add(new HashNode<K, V>(key, value));
+        size++;
     }
     public V get(K key){}
     public V remove(K key){}
