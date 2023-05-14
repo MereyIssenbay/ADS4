@@ -8,7 +8,11 @@ public class MyHashTable<K, V> {
         chain = new LinkedList[M];
         size = 0;
     }
-    public MyHashTable(int M){}
+    public MyHashTable(int M){
+        this.M = M;
+        chain = new LinkedList[M];
+        size = 0;
+    }
     private int hash(K key){}
     public void put(K key, V value){}
     public V get(K key){}
