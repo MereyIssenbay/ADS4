@@ -79,6 +79,15 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
+    public V replace(K key, V oldValue, V newValue){
+        int index = hash(key);
+        for (HashNode<K, V> node: chain[index]){
+            if(node.getKey().equals(key)){
+                return newValue;
+            }
+        }
+        return newValue;
+    }
 
     public int getSize() {
         return size;
