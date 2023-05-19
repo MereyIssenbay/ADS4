@@ -79,14 +79,17 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
-    public V replace(K key, V oldValue, V newValue){
+    public void replace(K key, V oldValue, V newValue){
         int index = hash(key);
-        for (HashNode<K, V> node: chain[index]){
-            if(node.getKey().equals(key)){
-                return newValue;
+        if (chain[index] == null){
+            chain[index] = new LinkedList<HashNode<K, V>>();
+        }
+        for (HashNode<K, V> node: chain[index]) {
+            if (node.getKey().equals(key)) {
+                node.setValue(newValue);
+                return;
             }
         }
-        return newValue;
     }
 
     public int getSize() {
